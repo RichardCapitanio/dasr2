@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto HCI 2026 - Relatório Final</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #00a8e8;
+            --accent: #ffcc00;
+            --dark: #1a1a1a;
+            --light: #f4f7f6;
+            --success: #28a745;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary), #001a33);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        section { margin-bottom: 60px; }
+
+        h2 {
+            border-left: 5px solid var(--secondary);
+            padding-left: 15px;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 40px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+            z-index: 1;
+        }
+        .time-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 2;
+            width: 25%;
+            text-align: center;
+        }
+        .time-item span { font-weight: bold; color: var(--secondary); display: block; }
+
+        /* Dashboard de Comparação */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
+        .stat-value { font-size: 1.8rem; font-weight: bold; display: block; }
+        .stat-label { color: #666; font-size: 0.9rem; text-transform: uppercase; }
+        .stat-growth {
+            background: var(--success);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Clusters */
+        .cluster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .cluster-card {
+            background: #fff;
+            border-top: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .cluster-card h3 { font-size: 1.1rem; margin-top: 0; color: var(--primary); }
+        .cluster-card ul { list-style: none; padding: 0; font-size: 0.9rem; }
+        .cluster-card li { margin-bottom: 8px; }
+        .cluster-card li i { color: var(--secondary); margin-right: 5px; }
+
+        /* Site B Alert */
+        .site-b-box {
+            background: #e1f5fe;
+            border-left: 5px solid var(--secondary);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Conclusion */
+        .conclusion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .benefit-item i {
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        .benefit-text h4 { margin: 0 0 5px 0; color: var(--primary); }
+        .benefit-text p { margin: 0; font-size: 0.95rem; color: #555; }
+
+        @media (max-width: 768px) {
+            .timeline { flex-direction: column; align-items: center; }
+            .timeline::before { display: none; }
+            .time-item { width: 80%; margin-bottom: 20px; }
+            .conclusion-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Modernização da Infraestrutura Hiperconvergente - HCI-PJTO</h1>
+    <p>Relatório de Transição do Legado para Alta Performance</p>
+</header>
+
+<div class="container">
+    <section>
+        <h2>A Jornada Tecnológica (<i>timeline</i>)</h2>
+        <div class="timeline">
+            <div class="time-item">
+                <span>Dezembro de 2017</span>
+                Início da operação do antigo HCI
+            </div>
+            <div class="time-item">
+                <span>Dezembro de 2025</span>
+                Fim da operação do antigo HCI
+            </div>
+            <div class="time-item">
+                <span>Dezembro 2025</span>
+                Início da operação do novo HCI
+            </div>
+        </div>
+    </section>
+
+<section>
+        <h2>Infraestrutura Legada (Antigo HCI-JTO)</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-microchip"></i>
+                <span class="stat-label">Processamento Total</span>
+                <span class="stat-value">422.4 GHz</span>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-memory"></i>
+                <span class="stat-label">Memória RAM Total</span>
+                <span class="stat-value">4.92 TiB</span>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-database"></i>
+                <span class="stat-label">Armazenamento Total</span>
+                <span class="stat-value">56.2 TiB</span>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-server"></i>
+                <span class="stat-label">Servidores Físicos</span>
+                <span class="stat-value">8 Unidades</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Escalabilidade Global (Soma de todos os Recursos)</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-microchip"></i>
+                <span class="stat-label">Processamento Total</span>
+                <span class="stat-value">1.024 GHz</span>
+                <span class="stat-growth">+142% vs Antigo</span>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-memory"></i>
+                <span class="stat-label">Memória RAM Total</span>
+                <span class="stat-value">11,54 TiB</span>
+                <span class="stat-growth">+134% vs Antigo</span>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-database"></i>
+                <span class="stat-label">Armazenamento Total</span>
+                <span class="stat-value">793,84 TiB</span>
+                <span class="stat-growth">+1.317% vs Antigo</span>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-server"></i>
+                <span class="stat-label">Servidores Físicos</span>
+                <span class="stat-value">14 Unidades</span>
+                <span class="stat-growth">+75% Redundância</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Boas Práticas: Segregação dos Clusters</h2>
+        <div class="cluster-grid">
+            <div class="cluster-card">
+                <h3><i class="fas fa-laptop-code"></i> Aplicações</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> 358.4 GHz</li>
+                    <li><i class="fas fa-check"></i> 3.93 TiB RAM</li>
+                    <li><i class="fas fa-check"></i> 214.7 TiB Disco</li>
+                </ul>
+            </div>
+            <div class="cluster-card">
+                <h3><i class="fas fa-server"></i> Banco de Dados</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> 374.4 GHz</li>
+                    <li><i class="fas fa-check"></i> 5.9 TiB RAM</li>
+                    <li><i class="fas fa-check"></i> 119.25 TiB Disco</li>
+                </ul>
+            </div>
+            <div class="cluster-card">
+                <h3><i class="fas fa-vial"></i> Homologação</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> 124.8 GHz</li>
+                    <li><i class="fas fa-check"></i> 0,752 TiB RAM</li>
+                    <li><i class="fas fa-check"></i> 101.64 TiB Disco</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="site-b-box">
+            <h3><i class="fas fa-shield-alt"></i> Site B: Estratégia de Disaster Recovery</h3>
+            <p><strong>Exclusivo para snapshots e backups:</strong> Nenhuma VM ativa ficará em funcionamento no Site B, seguindo as melhores práticas de proteção de dados.</p>
+            <ul>               
+		<li><strong>Poder de Processamento:</strong> 166.4 GHz</li>
+		<li><strong>Capacidade de Armazenamento:</strong> 358.25 TiB</li>
+		<li><strong>Quantidade de Memória RAM:</strong> 0.98 TiB</li>
+                <li><strong>Garantia:</strong> Proteção das VMs de Produção e Homologação.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Conclusão e Benefícios Estratégicos</h2>
+        <div class="conclusion-grid">
+            <div>
+                <div class="benefit-item">
+                    <i class="fas fa-user-shield"></i>
+                    <div class="benefit-text">
+                        <h4>Segurança e Garantia</h4>
+                        <p>Saímos de um ambiente legado, com 8 anos de uso, para uma plataforma moderna com garantia integral de fabricante e suporte técnico ativo.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="benefit-text">
+                        <h4>Escalabilidade Massiva (Recursos Globais)</h4>
+                        <p>Aumento real de: 142% na capacidade total de processamento (de 422,4 GHz para 1.024 GHz); 134% em RAM (de 4,92 TiB para 11,54 TiB); 1.317% na capacidade de armazenamento (de 56,02 TiB para 793,84 TiB); e 75% no número de servidores físicos (de 8 para 14).</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-sync"></i>
+                    <div class="benefit-text">
+                        <h4>Resiliência (Site B)</h4>
+                        <p>Cofre de segurança, o novo Site B foi reestruturado para ser um ambiente exclusivo de backup e snapshots, garantindo a proteção dos dados e a continuidade do negócio.</p>
+                    </div>
+                </div>
+	 </div>
+            <div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="benefit-text">
+                        <h4>Continuidade</h4>
+                        <p>Mitigação de riscos operacionais e garantia de maior disponibilidade para a prestação jurisdicional e atividades administrativas.</p>
+                    </div>
+                </div>         
+                <div class="benefit-item">
+                    <i class="fas fa-file-signature"></i>
+                    <div class="benefit-text">
+                        <h4>Alinhamento ao PDTIC</h4>
+                        <p>Infraestrutura preparada para novas soluções, conforme o planejamento estratégico do Tribunal.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-gavel"></i>
+                    <div class="benefit-text">
+                        <h4>Fortalecimento da Governança</h4>
+                        <p>Adoção de boas práticas de gestão que asseguram maior controle, confiabilidade e suporte especializado para a tomada de decisão da Administração Superior.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shield-virus"></i>
+                    <div class="benefit-text">
+                        <h4>Mitigação de Riscos</h4>
+                        <p>Eliminação de gargalos operacionais e riscos associados a hardwares sem garantia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer style="background: var(--dark); color: white; text-align: center; padding: 20px;">
+    <p>Apresentação para Gestão - Divisão de Administração e Segurança de Rede (DASR) - 2026
