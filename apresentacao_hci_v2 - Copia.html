@@ -35,6 +35,47 @@
         header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
         header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
 
+        /* Estilo do Menu Horizontal */
+        .nav-container {
+            background: var(--primary);
+            margin-bottom: 40px;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .horizontal-menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .horizontal-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .horizontal-menu li a:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .horizontal-menu li a.active {
+            background: var(--secondary);
+            font-weight: bold;
+        }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
         section { margin-bottom: 60px; }
@@ -155,6 +196,7 @@
             .timeline::before { display: none; }
             .time-item { width: 80%; margin-bottom: 20px; }
             .conclusion-grid { grid-template-columns: 1fr; }
+            .horizontal-menu { gap: 10px; }
         }
     </style>
 </head>
@@ -166,6 +208,18 @@
 </header>
 
 <div class="container">
+    
+    <nav class="nav-container">
+        <ul class="horizontal-menu">
+            <li><a href="#" class="active">Início</a></li>
+            <li><a href="#">Notícia 01</a></li>
+            <li><a href="#">Notícia 02</a></li>
+            <li><a href="#">Notícia 03</a></li>
+            <li><a href="#">Notícia 04</a></li>
+            <li><a href="#">Notícia 05</a></li>
+        </ul>
+    </nav>
+
     <section>
         <h2>A Jornada Tecnológica (<i>timeline</i>)</h2>
         <div class="timeline">
@@ -184,7 +238,7 @@
         </div>
     </section>
 
-<section>
+    <section>
         <h2>Infraestrutura Legada (Antigo HCI-JTO)</h2>
         <div class="stats-grid">
             <div class="stat-card">
@@ -342,4 +396,8 @@
 </div>
 
 <footer style="background: var(--dark); color: white; text-align: center; padding: 20px;">
-    <p>Apresentação para Gestão - Divisão de Administração e Segurança de Rede (DASR) - 2026
+    <p>Apresentação para Gestão - Divisão de Administração e Segurança de Rede (DASR) - 2026</p>
+</footer>
+
+</body>
+</html>
